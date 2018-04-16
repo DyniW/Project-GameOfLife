@@ -16,6 +16,27 @@ gameServer.onMessage = (message) => {
            faire avec... NUL
         */
     // console.log('LA DATA', messageData)
+    document.getElementById('grid').innerHTML = " ";
+    var grid = JSON.parse(messageData);
+
+    for(var i = 0; i < grid.width; i++)
+    {
+        for(var j = 0; j < grid.height;j++)
+        {
+            if(grid.cells[i][j]['alive'])
+            {
+                document.getElementById('grid').innerHTML += 1;
+            }
+            else
+            {
+                document.getElementById('grid').innerHTML += 0;
+            }
+        }
+
+        document.getElementById('grid').innerHTML += '\n';
+    }
+
+    console.log(JSON.parse(messageData));
 }
 
 gameServer
